@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type MouseEvent } from 'react'
 
 import {
   FaBars,
@@ -36,9 +36,8 @@ function App() {
     new Set(),
   )
 
-
   const downloadCv = async (
-    event: React.MouseEvent<HTMLAnchorElement>,
+    event: MouseEvent<HTMLAnchorElement>,
   ) => {
     event.preventDefault()
 
