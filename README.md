@@ -1,75 +1,32 @@
-# React + TypeScript + Vite
+# Portfolio de Héctor Talavera Jiménez
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio profesional en español orientado a oportunidades como Desarrollador Java Backend en México. Desarrollado con React + TypeScript + Vite.
 
-Currently, two official plugins are available:
+## Desarrollo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- `npm install`
+- `npm run dev`
+- `npm run lint`
+- `npm run build`
+- `npm run preview`
 
-## React Compiler
+## Contenido
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El sitio funciona únicamente en español. No utiliza selector de idioma, traducciones ni almacenamiento de preferencias.
 
-## Expanding the ESLint configuration
+- `src/App.tsx`: secciones, navegación y contenido general.
+- `src/components/PortfolioOverview.tsx`: resumen profesional, métricas y tecnologías principales.
+- `src/data/experience.ts` y `projects.ts`: experiencia y proyectos tipados.
+- `src/data/skills.ts`: categorías con backend primero y frontend funcional como complemento.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Se conservan las empresas, fechas, cargos oficiales, nombres de productos, instituciones y tecnologías. DaBook es el proyecto destacado y el frontend se presenta como experiencia complementaria.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## CV
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Reemplazar únicamente `public/cv/CV_Hector_Talavera_Jimenez_2026.pdf` con la nueva versión. Ambos enlaces usan la ruta pública `/cv/CV_Hector_Talavera_Jimenez_2026.pdf` y el atributo nativo `download` para descargar el archivo con el mismo nombre. El PDF existente no se modifica en este cambio.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+El reemplazo del CV definitivo es manual. `dist` es exclusivamente la salida de Vite: `npm run build` copia automáticamente los archivos de `public`. No editar manualmente `dist` ni utilizarlo como fuente del CV.
 
-```
+## SEO
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+`index.html` incluye título, descripción y Open Graph en español, con `html lang="es"` y `og:locale="es_MX"`. No se incluye canonical ni `og:url` porque el repositorio no documenta un dominio público definitivo del portfolio; deben configurarse con la URL real al publicar. No se agrega seguimiento ni analítica.

@@ -1,5 +1,6 @@
+
 export interface Experience {
-  id: string
+  id: 'dgp-actual' | 'mifel' | 'sura' | 'dgp-inicial'
   company: string
   role: string
   period: string
@@ -17,10 +18,10 @@ export const experiences: Experience[] = [
     period: 'Octubre 2024 — Actualidad',
     location: 'Gobierno del Estado de México · Toluca',
     description:
-      'Desarrollo, integración, automatización y despliegue de soluciones institucionales para procesos internos.',
+      'Desarrollo, integración, automatización y despliegue de soluciones backend institucionales para procesos internos.',
     highlights: [
       'Desarrollo y mantenimiento de servicios backend con Java, Spring Boot y PostgreSQL.',
-      'Participación en una plataforma integral de servicio social con módulos de instituciones, usuarios, vacantes, postulaciones, expedientes, documentos y seguimiento.',
+      'Desarrollo de módulos de una plataforma integral de servicio social para instituciones, usuarios, vacantes, postulaciones, expedientes, documentos y seguimiento.',
       'Integración de APIs REST, autenticación, autorización por roles, manejo de sesiones y validación de información.',
       'Integración de dispositivos biométricos mediante servicios desarrollados con FastAPI y Java para registrar asistencias y calcular horas.',
       'Desarrollo de herramientas con Python y SQL para procesar, validar y generar reportes de nómina desde archivos DBF y Excel.',
@@ -44,15 +45,15 @@ export const experiences: Experience[] = [
     period: 'Octubre 2025 — Julio 2026',
     location: 'Modalidad remota',
     description:
-      'Desarrollo y mantenimiento evolutivo de microservicios utilizados por una aplicación de banca móvil.',
+      'Desarrollo y mantenimiento evolutivo de microservicios con Java y Spring Boot para una aplicación de banca móvil.',
     highlights: [
-      'Desarrollo de microservicios con Java y Spring Boot para su consumo por aplicaciones frontend.',
-      'Corrección del flujo de autenticación para diferenciar credenciales incorrectas, timeouts e indisponibilidad de proveedores externos.',
-      'Optimización de validaciones del inicio de sesión para reducir solicitudes innecesarias hacia servicios core.',
-      'Mejora del tiempo de respuesta de transferencias mediante la optimización del flujo y eliminación de una consulta de alto costo.',
-      'Integración de validaciones de Sentinel en login, transferencias, DiMo, cambio de contraseña y actualización de datos.',
-      'Desarrollo de clientes REST y SOAP conectados con sistemas internos, proveedores externos y el core bancario.',
-      'Integración de notificaciones push, apoyo en certificaciones de CoDi y soporte a producción mediante análisis de logs.',
+      'Corrección del flujo de autenticación para diferenciar credenciales incorrectas, tiempos de espera agotados e indisponibilidad de proveedores externos.',
+      'Optimización de validaciones del inicio de sesión para reducir solicitudes innecesarias hacia servicios centrales.',
+      'Mejora del tiempo de respuesta de transferencias mediante la optimización del flujo y eliminación de una consulta de base de datos de alto costo.',
+      'Desarrollo de microservicios con Java y Spring Boot para su consumo por la aplicación de banca móvil.',
+      'Integración de validaciones de Sentinel en el inicio de sesión, transferencias, DiMo, cambio de contraseña y actualización de datos.',
+      'Desarrollo de clientes REST y SOAP conectados con sistemas internos, proveedores externos y el núcleo bancario.',
+      'Integración de notificaciones push, apoyo en certificaciones de CoDi y soporte a producción mediante análisis de registros.',
     ],
     technologies: [
       'Java',
@@ -89,13 +90,13 @@ export const experiences: Experience[] = [
       'Java',
       'Spring',
       'Spring Boot',
-      'Angular',
-      'AngularJS',
-      'TypeScript',
       'REST',
       'SOAP',
       'XML',
       'SQL',
+      'Angular',
+      'AngularJS',
+      'TypeScript',
       'Git',
     ],
   },

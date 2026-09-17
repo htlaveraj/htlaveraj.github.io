@@ -1429,3 +1429,20 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+.technology-primary {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.technology-icon-card span {
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+
+.complementary-stack {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}

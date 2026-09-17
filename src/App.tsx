@@ -1,4 +1,4 @@
-import { useState, type MouseEvent } from 'react'
+import { useRef, useState } from 'react'
 
 import {
   FaBars,
@@ -21,6 +21,7 @@ import { experiences } from './data/experience'
 import { projects } from './data/projects'
 import { skillGroups } from './data/skills'
 
+
 const CV_PATH = '/cv/CV_Hector_Talavera_Jimenez_2026.pdf'
 const EMAIL = 'httjimenez@gmail.com'
 const GITHUB_URL = 'https://github.com/htlaveraj'
@@ -28,6 +29,7 @@ const LINKEDIN_URL =
   'https://www.linkedin.com/in/hector-talavera-jimenez-270340219/'
 
 function App() {
+  const menuButton = useRef<HTMLButtonElement>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [expandedExperiences, setExpandedExperiences] = useState<Set<string>>(
     new Set(),
@@ -35,37 +37,6 @@ function App() {
   const [expandedProjects, setExpandedProjects] = useState<Set<string>>(
     new Set(),
   )
-
-  const downloadCv = async (
-    event: MouseEvent<HTMLAnchorElement>,
-  ) => {
-    event.preventDefault()
-
-    try {
-      const response = await fetch(CV_PATH, { cache: 'no-store' })
-      const contentType = response.headers.get('content-type') ?? ''
-
-      if (!response.ok || !contentType.includes('application/pdf')) {
-        throw new Error('El archivo PDF no se encontró en public/cv.')
-      }
-
-      const blob = await response.blob()
-      const objectUrl = URL.createObjectURL(blob)
-      const link = document.createElement('a')
-
-      link.href = objectUrl
-      link.download = 'CV_Hector_Talavera_Jimenez_2026.pdf'
-      document.body.appendChild(link)
-      link.click()
-      link.remove()
-      URL.revokeObjectURL(objectUrl)
-    } catch (error) {
-      console.error(error)
-      window.alert(
-        'No se encontró el CV. Verifica que exista en public/cv/CV_Hector_Talavera_Jimenez_2026.pdf',
-      )
-    }
-  }
 
   const closeMenu = () => setIsMenuOpen(false)
 
@@ -111,6 +82,7 @@ function App() {
 
         <button
           className="menu-toggle"
+          ref={menuButton}
           type="button"
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isMenuOpen}
@@ -124,6 +96,12 @@ function App() {
           className={`navigation ${isMenuOpen ? 'navigation-open' : ''}`}
           id="main-navigation"
           aria-label="Navegación principal"
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') {
+              closeMenu()
+              menuButton.current?.focus()
+            }
+          }}
         >
           <a href="#sobre-mi" onClick={closeMenu}>
             Sobre mí
@@ -150,7 +128,7 @@ function App() {
         <section className="hero" id="inicio">
           <div className="hero-content">
             <p className="eyebrow">
-              Backend Java · Spring Boot · Experiencia Full Stack
+              Desarrollador Java Backend · Spring Boot · Microservicios
             </p>
 
             <h1>
@@ -159,10 +137,7 @@ function App() {
             </h1>
 
             <p className="hero-description">
-              Desarrollo aplicaciones empresariales, microservicios y APIs
-              orientadas a resolver problemas reales. Mi principal fortaleza
-              está en el backend con Java, complementada con experiencia
-              funcional en Angular, TypeScript y React.
+              Desarrollo y evoluciono aplicaciones empresariales, microservicios e integraciones orientadas a resolver problemas reales. Mi especialidad es el backend con Java y Spring Boot, con experiencia en sistemas bancarios, aseguradores, gubernamentales y productos comerciales en producción.
             </p>
 
             <div className="hero-actions">
@@ -173,7 +148,7 @@ function App() {
               <a
                 className="button button-secondary"
                 href={CV_PATH}
-                onClick={downloadCv}
+              download="CV_Hector_Talavera_Jimenez_2026.pdf"
               >
                 <FaFileDownload aria-hidden="true" />
                 Descargar CV
@@ -187,11 +162,10 @@ function App() {
               Perfil profesional
             </div>
 
-            <h2>Analista Desarrollador Java Backend</h2>
+            <h2>Desarrollador Java Backend</h2>
 
             <p>
-              Más de cinco años desarrollando e integrando soluciones para los
-              sectores bancario, asegurador, gubernamental y comercial.
+              Más de cinco años desarrollando e integrando soluciones para los sectores bancario, asegurador, gubernamental y comercial.
             </p>
 
             <div className="profile-data">
@@ -201,13 +175,13 @@ function App() {
               </div>
 
               <div>
-                <span>Integraciones</span>
-                <strong>REST, SOAP y servicios externos</strong>
+                <span>Arquitectura</span>
+                <strong>Microservicios y REST/SOAP</strong>
               </div>
 
               <div>
-                <span>Experiencia frontend</span>
-                <strong>Angular y React</strong>
+                <span>Experiencia complementaria</span>
+                <strong>Angular, TypeScript y React</strong>
               </div>
             </div>
           </aside>
@@ -219,26 +193,20 @@ function App() {
 
             <div>
               <p className="section-label">Sobre mí</p>
-              <h2>Construyo soluciones que funcionan.</h2>
+              <h2>Construyo soluciones empresariales con Java.</h2>
             </div>
           </div>
 
           <div className="about-grid">
             <article className="about-description">
               <p>
-                Soy analista desarrollador Java Backend con experiencia en
-                aplicaciones empresariales, sistemas financieros, plataformas
-                institucionales y productos comerciales. He participado en el
-                análisis, desarrollo, mantenimiento, integración y soporte de
-                funcionalidades críticas.
+                Soy Desarrollador Java Backend con más de cinco años de experiencia en aplicaciones empresariales, sistemas financieros, plataformas institucionales y productos comerciales.
               </p>
 
               <p>
-                Mi especialidad es Java y Spring Boot. También puedo trabajar
-                la parte funcional de interfaces con AngularJS, Angular,
-                TypeScript y React, principalmente en consumo de APIs,
-                validaciones, formularios y flujos de negocio.
+                Mi especialidad es Java y Spring Boot, trabajando con lógica de negocio, microservicios, APIs, seguridad, persistencia, integraciones con sistemas externos y soporte a producción.
               </p>
+              <p>También cuento con experiencia funcional en Angular, AngularJS, TypeScript y React, principalmente para integración de APIs, formularios, validaciones y flujos de negocio.</p>
             </article>
 
             <div className="specialties">
@@ -246,8 +214,7 @@ function App() {
                 <span>Backend</span>
                 <h3>Java y Spring Boot</h3>
                 <p>
-                  Microservicios, lógica de negocio, seguridad, integraciones y
-                  APIs empresariales.
+                  Microservicios, lógica de negocio, seguridad, integraciones y APIs empresariales.
                 </p>
               </article>
 
@@ -255,17 +222,15 @@ function App() {
                 <span>Producto</span>
                 <h3>De la idea a producción</h3>
                 <p>
-                  Análisis, diseño técnico, base de datos, servicios,
-                  integraciones y despliegue.
+                  Análisis, diseño técnico, base de datos, servicios, integraciones y despliegue.
                 </p>
               </article>
 
               <article className="specialty-card">
                 <span>Enfoque</span>
-                <h3>Resolver problemas reales</h3>
+                <h3>Soluciones empresariales reales</h3>
                 <p>
-                  Soluciones funcionales, mantenibles y alineadas con las
-                  reglas del negocio.
+                  Soluciones funcionales, mantenibles y alineadas con las reglas del negocio.
                 </p>
               </article>
             </div>
@@ -283,9 +248,7 @@ function App() {
               <h2>Tecnologías utilizadas en proyectos reales.</h2>
 
               <p className="section-introduction">
-                Mi especialidad principal es el desarrollo backend con Java y
-                Spring Boot, complementada con experiencia en frontend, bases
-                de datos, seguridad, pagos, automatización y despliegue.
+                Java y Spring Boot son mi especialidad principal, con experiencia en persistencia, seguridad, integraciones, pagos y despliegue. El frontend es una competencia complementaria.
               </p>
             </div>
           </div>
@@ -328,9 +291,7 @@ function App() {
               <h2>Soluciones empresariales en distintos sectores.</h2>
 
               <p className="section-introduction">
-                Experiencia en banca, seguros y gobierno, principalmente en
-                backend, integración de servicios, optimización de procesos y
-                soporte de aplicaciones críticas.
+                Experiencia en banca, seguros y gobierno, principalmente en backend, integración de servicios, optimización de procesos y soporte de aplicaciones críticas.
               </p>
             </div>
           </div>
@@ -416,13 +377,10 @@ function App() {
 
             <div>
               <p className="section-label">Casos representativos</p>
-              <h2>Productos, evolutivos e iniciativas con impacto real.</h2>
+              <h2>Backend de productos y sistemas en producción.</h2>
 
               <p className="section-introduction">
-                Esta sección muestra una selección de productos, iniciativas y
-                frentes funcionales. No representa el total de desarrollos,
-                evolutivos, integraciones, optimizaciones e incidencias que he
-                atendido durante mi trayectoria.
+                Una selección de productos, integraciones y mejoras que muestran mi experiencia backend en entornos comerciales y empresariales.
               </p>
             </div>
           </div>
@@ -577,11 +535,10 @@ function App() {
         <section className="section contact-section" id="contacto">
           <div className="contact-copy">
             <p className="section-label">Contacto</p>
-            <h2>Hablemos de tu próximo proyecto.</h2>
+            <h2>Abierto a oportunidades Java Backend</h2>
 
             <p>
-              Estoy abierto a colaborar en proyectos backend, integraciones,
-              APIs y soluciones empresariales con Java y Spring Boot.
+              Estoy interesado en oportunidades de desarrollo backend donde pueda aportar experiencia con Java, Spring Boot, microservicios, APIs e integraciones empresariales.
             </p>
 
             <a className="contact-email" href={`mailto:${EMAIL}`}>
@@ -622,12 +579,12 @@ function App() {
             <a
               className="contact-card"
               href={CV_PATH}
-              onClick={downloadCv}
+                download="CV_Hector_Talavera_Jimenez_2026.pdf"
             >
               <FaFileDownload aria-hidden="true" />
               <span>
                 <strong>Currículum</strong>
-                Descargar versión PDF
+                Descargar CV
               </span>
               <FaChevronDown aria-hidden="true" />
             </a>
@@ -638,7 +595,7 @@ function App() {
       <footer className="footer">
         <div>
           <p>Héctor Talavera Jiménez</p>
-          <span>Analista Desarrollador Java Backend</span>
+          <span>Desarrollador Java Backend</span>
         </div>
 
         <p className="footer-location">

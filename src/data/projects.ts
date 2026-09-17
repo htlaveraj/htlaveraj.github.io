@@ -1,5 +1,6 @@
+
 export interface Project {
-  id: string
+  id: 'dabook' | 'banca-mifel' | 'sura' | 'gobierno'
   title: string
   organization: string
   period: string
@@ -21,16 +22,16 @@ export const projects: Project[] = [
     title: 'DaBook',
     organization: 'Proyecto comercial independiente',
     period: 'Julio 2025 — Julio 2026',
-    sector: 'Artistas · Marketplace · Educación',
+    sector: 'Artistas · Comercio digital · Educación',
     type: 'Producto completo',
     contributionLabel: 'Backend desarrollado por mí',
     summary:
-      'Plataforma para que músicos, pintores y otros artistas creen un perfil profesional, ofrezcan servicios y vendan productos y cursos.',
+      'Producto comercial en producción para que artistas creen perfiles profesionales, ofrezcan servicios y vendan productos y cursos. Desarrollé su backend con Java 17 y Spring Boot.',
     challenge:
-      'Integrar en un mismo producto perfiles profesionales, marketplace, cursos, membresías, pagos y control de acceso a contenido adquirido.',
+      'Integrar en un mismo producto perfiles profesionales, comercio digital, cursos, membresías, pagos y control de acceso a contenido adquirido.',
     contribution: [
-      'Desarrollo completo del backend y de la lógica de negocio con Java y Spring Boot.',
-      'Implementación de registro, autenticación, perfiles profesionales y currículums para artistas.',
+      'Desarrollo completo del backend y de la lógica de negocio con Java 17 y Spring Boot.',
+      'Implementación de registro, autenticación, autorización, perfiles profesionales y currículums para artistas.',
       'Construcción de módulos para publicar servicios, productos, cursos y contenido digital.',
       'Desarrollo del modelo de membresías y permisos para habilitar funciones comerciales de los artistas.',
       'Integración de Stripe para pagos, seguimiento de transacciones y validación de compras.',
@@ -47,7 +48,7 @@ export const projects: Project[] = [
       'PostgreSQL',
       'Flyway',
       'Stripe',
-      'REST APIs',
+      'APIs REST',
     ],
     featured: true,
     commercial: true,
@@ -62,17 +63,17 @@ export const projects: Project[] = [
     type: 'Evolución continua',
     contributionLabel: 'Frentes representativos',
     summary:
-      'Participación continua en el mantenimiento y evolución de microservicios bancarios mediante historias de usuario, optimizaciones, integraciones, correcciones e incidencias.',
+      'Mantenimiento y evolución de microservicios bancarios mediante historias de usuario, optimizaciones, integraciones, correcciones e incidencias.',
     challenge:
-      'Realizar cambios de distinto alcance sobre flujos críticos sin afectar la seguridad, la integración con el core ni la operación de la aplicación móvil.',
+      'Realizar cambios de distinto alcance sobre flujos críticos sin afectar la seguridad, la integración con el núcleo bancario ni la operación de la aplicación móvil.',
     contribution: [
-      'Autenticación y manejo diferenciado de credenciales inválidas, timeouts e indisponibilidad de proveedores.',
-      'Optimización de validaciones para reducir solicitudes innecesarias hacia servicios core.',
-      'Mejoras en transferencias Mifel-Mifel y a terceros, incluyendo optimización de consultas de alto costo.',
-      'Integración de validaciones de Sentinel en login, transferencias, DiMo, cambio de contraseña y actualización de datos.',
-      'Integraciones REST y SOAP con sistemas internos, proveedores externos y core bancario.',
+      'Autenticación y manejo diferenciado de credenciales inválidas, tiempos de espera agotados e indisponibilidad de proveedores.',
+      'Optimización de validaciones para reducir solicitudes innecesarias hacia servicios centrales.',
+      'Mejoras en transferencias Mifel-Mifel y a terceros, incluyendo la eliminación de una consulta de base de datos de alto costo.',
+      'Integración de validaciones de Sentinel en el inicio de sesión, transferencias, DiMo, cambio de contraseña y actualización de datos.',
+      'Integraciones REST y SOAP con sistemas internos, proveedores externos y núcleo bancario.',
       'Integración de notificaciones push y apoyo backend en certificaciones de CoDi.',
-      'Soporte a producción mediante análisis de logs e investigación de incidencias.',
+      'Soporte a producción mediante análisis de registros e investigación de incidencias.',
     ],
     technologies: [
       'Java',
@@ -111,13 +112,13 @@ export const projects: Project[] = [
       'Java',
       'Spring',
       'Spring Boot',
-      'Angular',
-      'AngularJS',
-      'TypeScript',
       'REST',
       'SOAP',
       'XML',
       'SQL',
+      'Angular',
+      'AngularJS',
+      'TypeScript',
     ],
   },
   {
@@ -129,7 +130,7 @@ export const projects: Project[] = [
     type: 'Sistemas e iniciativas',
     contributionLabel: 'Iniciativas representativas',
     summary:
-      'Participación en distintos sistemas e iniciativas institucionales, desde aplicaciones web completas hasta integraciones, automatizaciones, reportes y despliegues.',
+      'Desarrollo e integración de soluciones institucionales: aplicaciones web, APIs, automatizaciones, reportes y despliegues.',
     challenge:
       'Atender necesidades operativas variadas, modernizar procesos y conectar tecnologías actuales con sistemas y fuentes de información heredadas.',
     contribution: [
